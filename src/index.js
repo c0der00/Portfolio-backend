@@ -10,7 +10,7 @@ dotenv.config({
 
  const app = express()
 
-
+ 
 
  app.use( express.json({limit:"20kb"}))
  app.use(express.urlencoded({extended:true,limit:"20kb"}))
@@ -31,6 +31,10 @@ connectDB()
 .catch((error) => {
     console.log('monodb connection fail ' , error);
 })
+
+app.get('/', (req, res) => {
+    res.send('API is running');
+});
 
 import cors from 'cors'
 import contactRouter from './router/contact_router.js'
